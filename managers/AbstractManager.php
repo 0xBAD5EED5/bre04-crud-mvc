@@ -6,7 +6,7 @@ abstract class AbstractManager
 
     public function __construct()
     {
-        $config = require __DIR__ . '/../config/.env.php';
+        $config = require_once "config/.env.php";
 
         $host = $config['host'];
         $port = $config['port'];
