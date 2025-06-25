@@ -2,21 +2,22 @@
 class Router {
 
     public function handleRequest($get) {
-
+        $controller = new UserController();
+        
         if ($get['route'] === 'show_user') {
-            //$controller->show();
+            $controller->show();
         } elseif ($get['route'] === 'create_user') {
-            //$controller->create(); 
+            $controller->create(); 
         } elseif ($get['route'] === 'check_create_user') {
-            //$controller->checkCreate(); 
+            $controller->checkCreate(); 
         } elseif ($get['route'] === 'update_user') {
-            //$controller->update();
+            $controller->update();
         } elseif ($get['route'] === 'check_update_user') {
-            //$controller->checkUpdate();
+            $controller->checkUpdate();
         } elseif ($get['route'] === 'delete_user') {
-            //$controller->delete();
+            $controller->delete();
         } else {
-            //$controller->list();
+            $controller->list();
         }
     }
 }

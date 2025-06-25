@@ -1,6 +1,6 @@
 <?php
-require 'controllers/UserController.php';
-require 'config/Router.php';
+require_once 'controllers/UserController.php';
+require_once 'config/Router.php';
 
 $router = new Router();
 $router->handleRequest($_GET);
