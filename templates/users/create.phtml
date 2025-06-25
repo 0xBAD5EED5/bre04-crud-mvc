@@ -5,6 +5,23 @@
 	<title>Create</title>
 </head>
 <body>
-	<h1>Create</h1>
+	<h2>Créer un utilisateur</h2>
+	<form action="?route=check_create_user" method="post" autocomplete="off">
+    	<div>
+        	<label for="email">Adresse email :</label><br>
+        	<input type="email" name="email" id="email" required>
+    	</div>
+    	<div>
+        	<label for="first_name">Prénom :</label><br>
+        	<input type="text" name="first_name" id="first_name" required>
+    	</div>
+    	<div>
+        	<label for="last_name">Nom :</label><br>
+        	<input type="text" name="last_name" id="last_name" required>
+    	</div>
+    	<div>
+        	<button type="submit">Créer</button>
+    	</div>
+	</form>
 </body>
 </html>
