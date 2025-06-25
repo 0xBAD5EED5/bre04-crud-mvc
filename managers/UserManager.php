@@ -18,12 +18,13 @@ class UserManager extends AbstractManager
     	$users = [];
 
     	foreach ($rows as $row) {
-        	$users[] = new User(
+        	$user = new User(
             	$row['email'],
             	$row['first_name'],
             	$row['last_name'],
-            	$row['id']
         	);
+        	$user->setId($row['id']);
+        	$users[] = $user;
     	}
     	return $users;
 	}
@@ -41,14 +42,15 @@ class UserManager extends AbstractManager
     	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     	if ($row) {
-        	return new User(
-            	$row['email'],
-            	$row['first_name'],
-            	$row['last_name'],
-            	$row['id']
-        	);
-    	}
-    	return null;
+    		$user = new User(
+        		$row['email'],
+        		$row['first_name'],
+        		$row['last_name']
+    		);
+    		$user->setId($row['id']);
+    		return $user;
+		}
+		return null;
 	}
 
 
