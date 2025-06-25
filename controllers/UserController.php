@@ -1,6 +1,6 @@
 <?php
 class PageController {
-
+/*
     public function home() {
         $route = "home";
         require 'templates/layout.phtml';
@@ -52,4 +52,5 @@ class PageController {
         $route = "notFound";
         require 'templates/layout.phtml';
     }
+    */
 }

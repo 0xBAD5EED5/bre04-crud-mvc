@@ -1,5 +1,5 @@
 <?php
-require 'controllers/PageController.php';
+require 'controllers/UserController.php';
 require 'config/Router.php';
 
 $router = new Router();

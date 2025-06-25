@@ -1,54 +1,19 @@
-<?php
-$route = $route ?? null;
-$categorie = $categorie ?? null;
-$articleName = $articleName ?? null;
-$categoryTitle = $categoryTitle ?? null;
-$categoryText = $categoryText ?? null;
-$articleTitle = $articleTitle ?? null;
-$articleContent = $articleContent ?? null;
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Blog MVC</title>
+    <title>Mon CRUD MVC</title>
 </head>
 <body>
     <nav>
-        <a href="index.php">Accueil</a> |
-        <a href="index.php?route=a-propos">À propos</a> |
-        <a href="index.php?route=contact">Contact</a> |
-        <a href="index.php?route=categorie&categorie=dev-back">Dev Back</a> |
-        <a href="index.php?route=categorie&categorie=dev-front">Dev Front</a> |
-        <a href="index.php?route=article&article=i-love-php">I love PHP</a> |
-        <a href="index.php?route=article&article=i-love-js">I love JS</a>
+        <a href="index.php?route=show_user">show user</a> |
+        <a href="index.php?route=create_user">create user</a> |
+        <a href="index.php?route=check_create_user">check create user</a> |
+        <a href="index.php?route=update_user">update user</a> |
+        <a href="index.php?route=check_update_user">check update user</a> |
+        <a href="index.php?route=delete_user">delete user</a> |
     </nav>
     <hr>
-
-    <?php if ($route === 'home'): ?>
-        <h1>Bienvenue sur mon blog</h1>
-        <p>Ceci est la page d'accueil.</p>
-
-    <?php elseif ($route === 'about'): ?>
-        <h1>À propos</h1>
-        <p>Ici tu peux écrire ce que tu veux sur toi ou ton blog.</p>
-
-    <?php elseif ($route === 'contact'): ?>
-        <h1>Contact</h1>
-        <p>Formulaire de contact à venir…</p>
-
-    <?php elseif ($route === 'category'): ?>
-        <h1><?= htmlspecialchars($categoryTitle) ?></h1>
-        <p><?= htmlspecialchars($categoryText) ?></p>
-
-    <?php elseif ($route === 'article'): ?>
-        <h1><?= htmlspecialchars($articleTitle) ?></h1>
-        <p><?= htmlspecialchars($articleContent) ?></p>
-
-    <?php else: ?>
-        <h1>404 Not Found</h1>
-        <p>La page demandée n'existe pas.</p>
-    <?php endif; ?>
 
 </body>
 </html>
