@@ -5,6 +5,33 @@
 	<title>Show</title>
 </head>
 <body>
-	<h1>Show</h1>
+	<h2>Show</h2>
+	<?php if (!empty($users)) : ?>
+	    <table border="1" cellpadding="8">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Prénom</th>
+	                <th>Nom</th>
+	                <th>Email</th>
+	                <th>Actions</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+				<tr>
+				    <td><?= htmlspecialchars($users->getId()) ?></td>
+				    <td><?= htmlspecialchars($users->getFirstName()) ?></td>
+				    <td><?= htmlspecialchars($users->getLastName()) ?></td>
+				    <td><?= htmlspecialchars($users->getEmail()) ?></td>
+				    <td>
+				        <a href="index.php?route=update_user&id=<?= $users->getId() ?>">Modifier</a> |
+				        <a href="index.php?route=delete_user&id=<?= $users->getId() ?>">Supprimer</a>
+				    </td>
+				</tr>
+	        </tbody>
+	    </table>
+	<?php else : ?>
+	    <p>Aucun utilisateur trouvé.</p>
+	<?php endif; ?>
 </body>
 </html>

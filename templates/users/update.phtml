@@ -2,9 +2,27 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Update</title>
+	<title>Modifier un utilisateur</title>
 </head>
 <body>
-	<h1>Update</h1>
+	<h2>Modifier un utilisateur</h2>
+	<form action="index.php?route=checkUpdate" method="post" autocomplete="off">
+	    <input type="hidden" name="id" value="<?= htmlspecialchars($user->getId()) ?>">
+	    <div>
+	        <label for="email">Adresse email :</label><br>
+	        <input type="email" name="email" id="email" required value="<?= htmlspecialchars($user->getEmail()) ?>">
+	    </div>
+	    <div>
+	        <label for="first_name">Prénom :</label><br>
+	        <input type="text" name="first_name" id="first_name" required value="<?= htmlspecialchars($user->getFirstName()) ?>">
+	    </div>
+	    <div>
+	        <label for="last_name">Nom :</label><br>
+	        <input type="text" name="last_name" id="last_name" required value="<?= htmlspecialchars($user->getLastName()) ?>">
+	    </div>
+	    <div>
+	        <button type="submit">Modifier</button>
+	    </div>
+	</form>
 </body>
 </html>

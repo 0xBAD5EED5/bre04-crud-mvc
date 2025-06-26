@@ -2,6 +2,10 @@
 class UserController {
 
     public function show() {
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $manager = new UserManager();
+        $users = $manager->findOne($id);
+    
         $route = "show";
         require 'templates/layout.phtml';
     }
@@ -25,17 +29,30 @@ class UserController {
         $manager->create($user);
     
         // 3. Rediriger vers la liste des utilisateurs
-        header('Locat ion: index.php?route=list');
-        exit;
+        $route = "list";
+        require 'templates/layout.phtml';
     }
     
     public function update() {
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $manager = new UserManager();
+        $user = $manager->findOne($id);
+    
         $route = "update";
         require 'templates/layout.phtml';
     }
     
     public function checkUpdate() {
-        
+        $id = $_POST['id'];
+        $email = $_POST['email'];
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+    
+        $user = new User($email, $first_name, $last_name, $id);
+        $manager = new UserManager();
+        $manager->update($user);
+        $route = "list";
+        require 'templates/layout.phtml';
     }
     
     public function delete() {

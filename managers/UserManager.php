@@ -71,21 +71,18 @@ class UserManager extends AbstractManager
 
 
     // 4. Modifier un utilisateur existant
-	public function update(User $user): bool
-	{
-    	$sql = "UPDATE users SET email = :email, first_name = :first_name, last_name = :last_name WHERE id = :id";
-    
-    	$params = [
-        	':email'      => $user->getEmail(),
-        	':first_name' => $user->getFirstName(),
-        	':last_name'  => $user->getLastName(),
-        	':id'         => $user->getId()
-    	];
-
-    	$stmt = $this->db->prepare($sql);
-    	return $stmt->execute($params);
+	public function update(User $user): bool {
+	    $sql = "UPDATE users SET email = :email, first_name = :first_name, last_name = :last_name WHERE id = :id";
+	    $params = [
+	        ':email' => $user->getEmail(),
+	        ':first_name' => $user->getFirstName(),
+	        ':last_name' => $user->getLastName(),
+	        ':id' => $user->getId()
+	    ];
+	
+	    $stmt = $this->db->prepare($sql);
+	    return $stmt->execute($params);
 	}
-
 
     // 5. Supprimer un utilisateur
 	public function delete(int $id): bool
