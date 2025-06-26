@@ -54,6 +54,8 @@ class UserController {
         $manager = new UserManager();
         $manager->update($user);
     
+        // On recharge la liste des utilisateurs pour la vue
+        $users = $manager->findAll();
         $route = "list";
         require 'templates/layout.phtml';
     }
