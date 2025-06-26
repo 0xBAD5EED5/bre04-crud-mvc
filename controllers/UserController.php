@@ -48,9 +48,12 @@ class UserController {
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
     
-        $user = new User($email, $first_name, $last_name, $id);
+        $user = new User($email, $first_name, $last_name);
+        $user->setId($id);
+    
         $manager = new UserManager();
         $manager->update($user);
+    
         $route = "list";
         require 'templates/layout.phtml';
     }
