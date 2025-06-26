@@ -29,8 +29,8 @@ class UserController {
         $manager->create($user);
     
         // 3. Rediriger vers la liste des utilisateurs
-        $route = "list";
-        require 'templates/layout.phtml';
+        header('Location: index.php?route=list');
+        exit;
     }
     
     public function update() {
@@ -55,9 +55,8 @@ class UserController {
         $manager->update($user);
     
         // On recharge la liste des utilisateurs pour la vue
-        $users = $manager->findAll();
-        $route = "list";
-        require 'templates/layout.phtml';
+        header('Location: index.php?route=list');
+        exit;
     }
     
     public function delete() {
