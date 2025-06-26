@@ -54,13 +54,19 @@ class UserController {
         $manager = new UserManager();
         $manager->update($user);
     
-        // On recharge la liste des utilisateurs pour la vue
         header('Location: index.php?route=list');
         exit;
     }
     
     public function delete() {
-        
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        if ($id !== null) {
+            $manager = new UserManager();
+            $manager->delete($id);
+        }
+
+        header('Location: index.php?route=list');
+        exit;
     }
 
     public function list() {
