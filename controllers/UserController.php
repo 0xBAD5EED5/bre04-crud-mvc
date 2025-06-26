@@ -25,12 +25,9 @@ class UserController {
         $manager->create($user);
     
         // 3. Rediriger vers la liste des utilisateurs
-        header('Location: index.php?route=list');
+        header('Locat ion: index.php?route=list');
         exit;
     }
-
-
-
     
     public function update() {
         $route = "update";
@@ -45,10 +42,11 @@ class UserController {
         
     }
 
-
     public function list() {
+        $manager = new UserManager();
+        $users = $manager->findAll();
+        
         $route = "list";
         require 'templates/layout.phtml';
     }
-    
 }

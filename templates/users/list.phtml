@@ -1,10 +1,30 @@
-<!doctype html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>List</title>
-</head>
-<body>
-	<h1>List</h1>
-</body>
-</html>
+<?php if (!empty($users)) : ?>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user) : ?>
+                <tr>
+                    <td><?= htmlspecialchars($user->getId()) ?></td>
+                    <td><?= htmlspecialchars($user->getFirstName()) ?></td>
+                    <td><?= htmlspecialchars($user->getLastName()) ?></td>
+                    <td><?= htmlspecialchars($user->getEmail()) ?></td>
+                    <td>
+                        <a href="index.php?route=show_user&id=<?= $user->getId() ?>">Voir</a> |
+                        <a href="index.php?route=update_user&id=<?= $user->getId() ?>">Modifier</a> |
+                        <a href="index.php?route=delete_user&id=<?= $user->getId() ?>">Supprimer</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else : ?>
+    <p>Aucun utilisateur trouvé.</p>
+<?php endif; ?>
